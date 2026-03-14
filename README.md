@@ -149,7 +149,7 @@ These projects are built on the SDK. Each one is proof of the infrastructure cla
 
 | Project | What it does | Status |
 |---|---|---|
-| [Zeroknowledge MCP](https://github.com/The-17/zero-knowledge-mcp) | Template for building MCP servers with zero credential storage | Coming soon |
+| [Zeroknowledge MCP](https://github.com/The-17/zero-knowledge-mcp) | Template for building MCP servers with zero credential storage | Completed |
 | agentsecrets-langchain | Zero-knowledge API calls in any LangChain agent | Coming soon |
 
 Building something on the SDK? Open a PR to add it here.

